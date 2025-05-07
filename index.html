@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtos</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <h1><mark> Cadastro de Produtos</h1>
+
+    <form method="POST" id="formulario">
+        <input type="text" id="nome" name="nome" placeholder="Digite o nome">
+        <input type="text" id="desc" name="desc" placeholder="Digite a descrição">
+        <input type="number" id="quant" name="quant" placeholder="Digite a quantidade">
+        <input type="text" id="preco" name="preco" placeholder="R$">
+
+        <select name="tipo" id="tipo">
+            <option value="Limpeza"> LIMPEZA </option>
+            <option value="Eletrônico"> ELETRONICO </option>
+            <option value="Móveis"> MÓVEIS </option>
+            <option value="Informática"> INFORMÁTICA </option>
+            <option value="Bebida"> BEBIDAS </option>
+            <option value="Alimentos"> ALIMENTOS </option>
+        </select>
+
+
+        <input type="submit" id="cadastrar" name="cadastrar" value="Cadastrar">
+        <input type="reset" id="cancelar" name="cancelar" value="Cancelar">
+    </form>
+    
+    <div id="modal" class="oculta">
+        <div class="botoes">
+            <button id="yes">YES</button>
+            <button id="no">NO</button>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+
+</body>
+</html>

@@ -1,22 +1,25 @@
 <?php
-require './DB/Database.php';
 
-class Cliente{
+require '../DB/Database.php';
+
+class Produto{
 
     public int $id;
     public string $nome;
-    public string $cpf;
-    public string $email;
-    public string $foto;
+    public string $descricao;
+    public int $quant;
+    public float $preco;
+    public string $tipo;
 
     public function cadastrar(){
-        $db = new Database('cliente');
+        $db = new Database('produto');
         $result =  $db->insert(
                             [
                             'nome' => $this->nome,
-                            'cpf' => $this->cpf,
-                            'email' => $this->email,
-                            'foto' => $this->foto
+                            'descricao' => $this->descricao,
+                            'quant' => $this->quant,
+                            'preco' => $this->preco,
+                            'tipo' => $this->tipo
                             ]
                         );
         
@@ -29,25 +32,27 @@ class Cliente{
     }
 
     public function atualizar(){
-            return (new Database('cliente'))->update('id ='.$this->id,[
+            return (new Database('produto'))->update('id_prod ='.$this->id,[
                 'nome' => $this->nome,
-                'cpf' => $this->cpf,
-                'email' => $this->email
+                'descricao' => $this->descricao,
+                'quant' => $this->quant,
+                'preco' => $this->preco,
+                'tipo' => $this->tipo
             ]);
     }
 
     public static function buscar(){
         //FETCHALL
-        return (new Database('cliente'))->select()->fetchAll(PDO::FETCH_ASSOC);
+        return (new Database('produto'))->select()->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public static function buscar_by_id($id){
         //FETCHALL
-        return (new Database('cliente'))->select('id = '. $id)->fetchObject(self::class);
+        return (new Database('produto'))->select('id_prod = '. $id)->fetchObject(self::class);
     }
 
     public function excluir($id){
-        return (new Database('cliente'))->delete('id = '.$id);
+        return (new Database('produto'))->delete('id_prod = '.$id);
     }
 
 }
